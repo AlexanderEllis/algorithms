@@ -1,13 +1,9 @@
 # Merge sort
 
-import random
-
-random_array = []
-
-for x in range(0, 100):
-	random_array.append(random.randint(0,100))
-
 def merge_arrays(array_A, array_B):
+	"""
+	Merges two sorted lists 
+	"""
 	merged_array = []
 	i = 0
 	j = 0
@@ -21,10 +17,12 @@ def merge_arrays(array_A, array_B):
 	return merged_array
 
 def merge_sort(input_array):
+	"""
+	Recursively sorts list
+	"""
 	length = len(input_array)
 	if length == 1:
 		return input_array
 	else:
 		return merge_arrays(merge_sort(input_array[length // 2:]), merge_sort(input_array[:length // 2]))
 
-print(merge_sort(random_array))
