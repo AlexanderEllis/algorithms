@@ -1,6 +1,6 @@
 from merge_sort import *
 from bubble_sort import *
-from binary_search import binary_search
+from binary_search import *
 import unittest
 import random
 

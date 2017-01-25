@@ -1,5 +1,4 @@
-import merge_sort
-import random
+# Binary Search
 
 def binary_search(array, value):
 	"""
