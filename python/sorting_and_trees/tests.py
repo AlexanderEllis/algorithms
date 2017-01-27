@@ -25,6 +25,16 @@ class MergeSortTest(unittest.TestCase):
 			random_array.append(random.randint(0, 100))
 
 		self.assertEqual(bubble_sort(random_array), sorted(random_array))
+	
+	def test_insertion_sort(self):
+		self.assertEqual(bubble_sort([2,4,5,1,2,4]), [1,2,2,4,4,5])
+
+		random_array = []
+		for x in range(0, 100):
+			random_array.append(random.randint(0, 100))
+
+		self.assertEqual(bubble_sort(random_array), sorted(random_array))
+
 
 
 	def test_binary_search(self):
