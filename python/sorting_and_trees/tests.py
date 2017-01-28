@@ -1,13 +1,15 @@
 from merge_sort import *
 from bubble_sort import *
 from binary_search import *
+from insertion_sort import *
 from heap_sort import *
+from bst_sort import *
 import unittest
 import random
 
 # Usage: python tests.py -v
 
-class MergeSortTest(unittest.TestCase):
+class SortingTest(unittest.TestCase):
 	
 	def test_merge_sort(self):
 		self.assertEqual(merge_sort([2,4,5,1,2,4]), [1,2,2,4,4,5])
@@ -29,13 +31,13 @@ class MergeSortTest(unittest.TestCase):
 		self.assertEqual(bubble_sort(random_array), sorted(random_array))
 	
 	def test_insertion_sort(self):
-		self.assertEqual(bubble_sort([2,4,5,1,2,4]), [1,2,2,4,4,5])
+		self.assertEqual(insertion_sort([2,4,5,1,2,4]), [1,2,2,4,4,5])
 
 		random_array = []
 		for x in range(0, 100):
 			random_array.append(random.randint(0, 100))
 
-		self.assertEqual(bubble_sort(random_array), sorted(random_array))
+		self.assertEqual(insertion_sort(random_array), sorted(random_array))
 	
 	def test_heap_sort(self):
 		self.assertEqual(heap_sort([2,4,5,1,2,4]), [1,2,2,4,4,5])
@@ -46,6 +48,16 @@ class MergeSortTest(unittest.TestCase):
 				random_array.append(random.randint(0,100))
 
 		self.assertEqual(heap_sort(random_array), sorted(random_array))
+		
+	def test_bst_sort(self):
+		self.assertEqual(bst_sort([2,4,5,1,2,4]), [1,2,2,4,4,5])
+		self.assertEqual(bst_sort([5,4,3,2,1]), [1,2,3,4,5])
+
+		random_array = []
+		for x in range(0, 100):
+				random_array.append(random.randint(0,100))
+
+		self.assertEqual(bst_sort(random_array), sorted(random_array))
 		
 
 
