@@ -1,16 +1,7 @@
 # Heap Sort
 
-# In basic heap using list, left child is 2 * n, right child is 2 * n + 1
+# In this basic heap using list, left child is 2 * n, right child is 2 * n + 1
 #
-# [0, 1, 2, 3, 4, 5, 6]
-#
-#			     0
-#		     /      \
-#		   1           2
-#        /  \          / \
-#       3   4         5   6
-#      /\   /\       /\   /\
-#	  7 8  9  10   11 12 13 14
 
 def max_heapify(input_list, index):
 	"""
@@ -22,27 +13,31 @@ def max_heapify(input_list, index):
 
 	Note: middle boolean in first if so we always move the larger of the two up to keep max property
 	"""
-	if len(input_list) > index * 2 + 2 and input_list[index * 2 + 1] < input_list[index * 2 + 2] and input_list[index] < input_list[index * 2 + 2]:
-		temp = input_list[index]
-		input_list[index] = input_list[index * 2 + 2]
-		input_list[index * 2 + 2] = temp
-		return max_heapify(input_list, index * 2 + 2)
-	elif len(input_list) > index * 2 + 1 and input_list[index] < input_list[index * 2 + 1]:
-		temp = input_list[index]
-		input_list[index] = input_list[index * 2 + 1]
-		input_list[index * 2 + 1] = temp
-		return max_heapify(input_list, index * 2 + 1)
+	heap = []
+	heap.extend(input_list)
+	if len(heap) > index * 2 + 2 and heap[index * 2 + 1] < heap[index * 2 + 2] and heap[index] < heap[index * 2 + 2]:
+		temp = heap[index]
+		heap[index] = heap[index * 2 + 2]
+		heap[index * 2 + 2] = temp
+		return max_heapify(heap, index * 2 + 2)
+	elif len(heap) > index * 2 + 1 and heap[index] < heap[index * 2 + 1]:
+		temp = heap[index]
+		heap[index] = heap[index * 2 + 1]
+		heap[index * 2 + 1] = temp
+		return max_heapify(heap, index * 2 + 1)
 	else: 
-		return input_list
+		return heap
 
 def build_max_heap(input_list):
 	"""
 	Input: Heap without max property
 	Output: Heap with max property
 	"""
-	for i in range(len(input_list) // 2, -1, -1):
-		input_list = max_heapify(input_list, i)
-	return input_list
+	max_heap = []
+	max_heap.extend(input_list)
+	for i in range(len(max_heap) // 2, -1, -1):
+		max_heap = max_heapify(max_heap, i)
+	return max_heap
 
 
 def heap_sort(input_list):
