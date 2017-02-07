@@ -13,4 +13,3 @@ def binary_search(array, value):
 		return binary_search(array[: length // 2], value)
 	else:
 		return binary_search(array[length // 2 :], value)
-

@@ -4,6 +4,7 @@ from binary_search import *
 from insertion_sort import *
 from heap_sort import *
 from bst_sort import *
+from linked_list import *
 import unittest
 import random
 
@@ -58,7 +59,28 @@ class SortingTest(unittest.TestCase):
 				random_array.append(random.randint(0,100))
 
 		self.assertEqual(bst_sort(random_array), sorted(random_array))
-		
+	
+	def test_linked_list_sort(self):
+
+		test_array = [2,5,3,1,2,4]
+
+		test_list = Linked_List()
+		for value in test_array:
+			test_list.insert(value)
+		test_list.sort()
+		self.assertEqual(test_list.printer(), sorted(test_array))
+
+		random_array = []
+		for x in range(100):
+			random_array.append(random.randint(0,100))
+
+		test_list = Linked_List()
+		for value in random_array:
+			test_list.insert(value)
+		test_list.sort()
+		self.assertEqual(test_list.printer(), sorted(random_array))
+
+
 
 
 
